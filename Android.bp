@@ -119,7 +119,11 @@ android_app {
     manifest: "AndroidManifest.xml",
     additional_manifests: [":WallpaperPicker2_Manifest"],
 
-    required: ["privapp_whitelist_com.android.wallpaper"],
+    required: [
+        "privapp_whitelist_com.android.wallpaper",
+        "default_permissions_com.android.wallpaper",
+    ],
+
     overrides: ["WallpaperPicker2", "WallpaperPicker"],
 }
 
@@ -129,4 +133,12 @@ prebuilt_etc {
     system_ext_specific: true,
     filename_from_src: true,
     sub_dir: "permissions",
+}
+
+prebuilt_etc {
+    name: "default_permissions_com.android.wallpaper",
+    src: "default_permissions_com.android.wallpaper.xml",
+    system_ext_specific: true,
+    filename_from_src: true,
+    sub_dir: "default-permissions",
 }
